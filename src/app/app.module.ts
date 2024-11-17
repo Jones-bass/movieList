@@ -7,11 +7,12 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, MatSlideToggleModule, MatToolbarModule],
+  imports: [BrowserModule, AppRoutingModule, MatSlideToggleModule, HttpClientModule, MatToolbarModule],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })

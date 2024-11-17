@@ -1,1 +1,30 @@
-<p>movies works!</p>
+<div class="card">
+  <div class="card-header">
+    <div class="col-sm-12 p-0">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-4">Listar Filmes</h1>
+      </div>
+    </div>
+
+  </div>
+  <div class="mb-4" style="margin-left: 10px;">
+    <div class="col-sm-12 col-lg-12 col-xl-12">
+      <div class="table-responsive theme-scrollbar">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Categoria</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let movies of movies">
+              <td>{{ movies.name }}</td>
+              <td>{{ movies.category }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

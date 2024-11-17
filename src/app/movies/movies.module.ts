@@ -11,7 +11,8 @@ import { MoviesComponent } from './movies/movies.component';
   ],
   imports: [
     CommonModule,
-    MoviesRoutingModule
-  ]
+    MoviesRoutingModule,
+  ],
+  
 })
 export class MoviesModule { }
