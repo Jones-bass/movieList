@@ -8,11 +8,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, MatSlideToggleModule, HttpClientModule, MatToolbarModule],
+  imports: [BrowserModule, AppRoutingModule, MatSlideToggleModule, HttpClientModule, MatToolbarModule, NgbModule],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })

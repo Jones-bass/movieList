@@ -1,0 +1,36 @@
+<div>
+  <header class="p-3">
+    <div class="container d-flex flex-wrap justify-content-center gap-3">
+      <div class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto">
+        <span class="fs-4">Listar Filmes</span>
+      </div>
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+      </form>
+
+      <button type="button" class="btn btn-primary d-flex align-items-center" (click)="openModal()">Cadastrar Filme</button>
+
+    </div>
+  </header>
+
+  <div class="mb-4">
+    <div class="col-sm-12 col-lg-12 col-xl-12">
+      <div class="table-responsive theme-scrollbar">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" class="text-muted">Nome</th>
+              <th scope="col" class="text-muted">Categoria</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let movies of movies">
+              <td>{{ movies.name }}</td>
+              <td>{{ movies.category }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>      
+    </div>
+  </div>
+</div>

@@ -21,6 +21,8 @@
     "@angular/platform-browser": "^17.1.0",
     "@angular/platform-browser-dynamic": "^17.1.0",
     "@angular/router": "^17.1.0",
+    "@ng-bootstrap/ng-bootstrap": "^17.0.1",
+    "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "movie-list": "file:",
     "rxjs": "~7.8.0",
