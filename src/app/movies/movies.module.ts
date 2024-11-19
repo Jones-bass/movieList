@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MoviesRoutingModule } from './movies-routing.module';
 import { RegisterMoviesComponent } from './register-movies/register-movies.component';
 import { ListMoviesComponent } from './list-movies/list-movies.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { ListMoviesComponent } from './list-movies/list-movies.component';
   imports: [
     CommonModule,
     MoviesRoutingModule,
+    SharedModule
   ],
   
 })
