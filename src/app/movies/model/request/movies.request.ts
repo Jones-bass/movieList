@@ -1,16 +1,16 @@
 
 export class MoviesRequest {
   _id: string;
-  name: string;
+  title: string;
   category: string;
 
   constructor(
     _id: string,
-    name: string,
+    title: string,
     category: string,
   ) {
     this._id = _id;
-    this.name = name;
+    this.title = title;
     this.category = category;
   }
 }

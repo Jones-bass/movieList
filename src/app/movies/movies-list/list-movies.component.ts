@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from './services/movies.service';
+import { MovieService } from '../services/movies.service';
 import { MoviesRequest } from '../model/request/movies.request';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { RegisterMoviesComponent } from '../register-movies/register-movies.component';
+import { RegisterMoviesComponent } from '../movies-register/register-movies.component';
 
 @Component({
   selector: 'app-movies',
@@ -13,6 +13,8 @@ import { RegisterMoviesComponent } from '../register-movies/register-movies.comp
 export class ListMoviesComponent implements OnInit {
 
   public movies: MoviesRequest[] = [];
+
+  public carregando = false;
 
   constructor(
     private movieService: MovieService,
@@ -25,21 +27,24 @@ export class ListMoviesComponent implements OnInit {
   }
 
   private getMovies() {
+    this.carregando = true;
+
     this.movieService.getMovies().subscribe({
       next: (response) => {
         this.movies = response;
-        console.log(response)
+        console.log(response);
+        this.carregando = false;
       },
       error: (err) => {
         console.error('Error fetching movies:', err);
-        alert('Falha na conexão');
+        this.carregando = false;
       },
     });
   }
 
-  public openModal() {
-    const modalRef = this.modalService.open(RegisterMoviesComponent);
 
+  public openModal() {
+    this.modalService.open(RegisterMoviesComponent);
   }
 }
 

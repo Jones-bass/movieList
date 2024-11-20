@@ -8,11 +8,13 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { RouterModule } from "@angular/router";
+import { LoadingListComponent } from "./component/loading-list/loading-list.component";
 
 
 @NgModule({
   declarations: [
     FeathericonComponent,
+    LoadingListComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { RouterModule } from "@angular/router";
     NgbModule,
     RouterModule,
     FormsModule,
+    LoadingListComponent,
     ReactiveFormsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
