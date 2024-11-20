@@ -58,7 +58,7 @@ export class ListMoviesComponent implements OnInit {
   }
 
   private excluirFilme(movieId: string): void {
-    this.movieService.deletarFilme(movieId).subscribe({
+    this.movieService.deleteMovies(movieId).subscribe({
       next: () => this.onDeleteSuccess(),
       error: (error) => this.onDeleteError(error),
     });
@@ -77,6 +77,15 @@ export class ListMoviesComponent implements OnInit {
       "Erro ao excluir perfil"
     );
   }
+
+  public abrirModalEditar(movie: MoviesRequest) {
+    const modalRef = this.modalService.open(RegisterMoviesComponent);
+    modalRef.componentInstance.movie = movie;
+    modalRef.result.then(
+      () => this.getMovies(),
+    );
+  }
+
 
   public openModal() {
     this.modalService.open(RegisterMoviesComponent);

@@ -1,14 +1,19 @@
 {
-  "filmes": [
+  "movies": [
     {
-      "id": "1",
       "title": "X-Men",
-      "category": "Ação"
+      "category": "Ação - Marvel",
+      "id": "1"
     },
     {
-      "id": "ffcd",
       "title": "Deadpoll",
-      "category": "Ação"
+      "category": "Ação - Marvel",
+      "id": "ffcd"
+    },
+    {
+      "title": "O Grito",
+      "category": "Terror",
+      "id": "96c8"
     }
   ]
 }

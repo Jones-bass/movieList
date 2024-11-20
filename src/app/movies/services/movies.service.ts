@@ -13,16 +13,21 @@ export class MovieService {
   constructor(private http: HttpClient) { }
 
   public getMovies(): Observable<any> {
-    return this.http.get(`${this.apiUrl}filmes`)
+    return this.http.get(`${this.apiUrl}movies`)
       .pipe();
   }
 
-  public cadastrarFilme(movie: MoviesRequest): Observable<MoviesRequest> {
-    return this.http.post<MoviesRequest>(`${this.apiUrl}filmes`, movie).pipe();
+  public registerMovies(movie: MoviesRequest): Observable<MoviesRequest> {
+    return this.http.post<MoviesRequest>(`${this.apiUrl}movies`, movie).pipe();
   }
 
-  public deletarFilme(id: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}filmes/${id}`).pipe();
+  public deleteMovies(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}movies/${id}`).pipe();
   }
 
+  public updateMovies(id: string, movie: MoviesRequest): Observable<MoviesRequest> {
+    return this.http
+      .put<MoviesRequest>(`${this.apiUrl}movies/${id}`, movie)
+      .pipe();
+  }
 }

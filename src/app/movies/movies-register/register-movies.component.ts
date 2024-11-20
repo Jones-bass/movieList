@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { MovieService } from '../services/movies.service';
+import { MoviesRequest } from '../model/request/movies.request';
 
 @Component({
   selector: 'app-perfil-cadastro',
@@ -10,9 +11,11 @@ import { MovieService } from '../services/movies.service';
   styleUrl: './register-movies.component.scss'
 })
 export class RegisterMoviesComponent {
+  @Input() movie: MoviesRequest | null = null; 
+  @Output() atualizarListaFilme = new EventEmitter<MoviesRequest>();
 
   public carregando = false;
-
+  isEditMode = false;
   formGroup: FormGroup;
 
   constructor(
@@ -29,6 +32,10 @@ export class RegisterMoviesComponent {
   }
 
   ngOnInit(): void {
+    if (this.movie) {
+      this.isEditMode = true;
+      this.formGroup.patchValue(this.movie);
+    }
   }
 
   salvar() {
@@ -36,17 +43,25 @@ export class RegisterMoviesComponent {
       this.formGroup.markAllAsTouched();
       return;
     }
+    this.atualizarListaFilme.emit(); 
     this.carregando = true;
 
-    this.movieService.cadastrarFilme(this.formGroup.value).subscribe({
+    const request$ = this.isEditMode
+    ? this.movieService.updateMovies(this.movie!.id as string, this.formGroup.value)
+    : this.movieService.registerMovies(this.formGroup.value);
+
+    request$.subscribe({
       next: () => this.onSuccess(),
       error: (error) => this.onError(error),
     });
   }
 
   private onSuccess() {
+    const mensagem = this.isEditMode
+    ? "Filme atualizado com sucesso!"
+    : "Filme cadastrado com sucesso!";
     this.carregando = false;
-    this.toastr.success("Filme cadastrado com sucesso!");
+    this.toastr.success(mensagem);
     this.activeModal.close();
   }
 
@@ -55,7 +70,9 @@ export class RegisterMoviesComponent {
     if (error.error.errorCode === 400) {
       this.toastr.error(error.error.errorMessage);
     } else {
-      this.toastr.error("Erro ao cadastrar, entre em contato com o administrador!");
-    }
+      const mensagem = this.isEditMode
+      ? "Erro ao atualizar, entre em contato com o administrador!"
+      : "Erro ao cadastrar, entre em contato com o administrador!";
+    this.toastr.error(mensagem);    }
   }
 }

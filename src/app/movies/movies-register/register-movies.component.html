@@ -1,7 +1,8 @@
 <div class="modal-content">
   <header class="modal-header">
-    <h4 class="modal-title">Cadastrar Filmes</h4>
-    <button type="button" class="btn-close" aria-label="Close"></button>
+    <h4 class="modal-title">{{ isEditMode ? 'Editar Perfil' : 'Cadastrar Peril' }}</h4>
+
+    <button type="button" class="btn-close" aria-label="Close"  (click)="activeModal.dismiss('Cross click')"></button>
   </header>
 
   <div class="modal-body">
@@ -29,7 +30,7 @@
   </div>
 
   <footer class="modal-footer">
-    <button type="button" class="btn btn-secondary">Cancelar</button>
-    <button type="button" class="btn btn-primary" (click)="salvar()">Salvar</button>
+    <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Close click')">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="salvar()">{{ isEditMode ? 'Atualizar' : 'Salvar' }}</button>
   </footer>
 </div>

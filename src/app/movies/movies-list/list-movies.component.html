@@ -8,37 +8,40 @@
         <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
       </form>
 
-      <button type="button" class="btn btn-primary d-flex align-items-center" (click)="openModal()">Cadastrar
-        Filme</button>
+      <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center text-center"
+        style="width: 170px;" (click)="openModal()">
+        <app-feathericon [icon]="'plus'" />Cadastrar
+      </button>
+      
     </div>
   </header>
 
   <div class="container">
     <div class="table-responsive rounded shadow-sm bg-white p-4 theme-scrollbar">
       <app-loading-list [mostrar]="carregando"></app-loading-list>
-        <table class="table" *ngIf="!carregando">
-          <thead class="table-light border-bottom border-light">
-            <tr>
-              <th scope="col">FILME</th>
-              <th scope="col">CATEGORIA</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let movies of movies">
-              <td>{{ movies.title }}</td>
-              <td>{{ movies.category }}</td>
-              <td class="text-center action-icon">
-                <span class="action-icon-edit" title="Editar">
-                  <app-feathericon [icon]="'edit'"></app-feathericon>
-                </span>
-                <span class="action-icon-trash" title="Excluir" (click)="deletarFilme(movies.id)">
-                  <app-feathericon [icon]="'trash-2'"></app-feathericon>
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-     </div>
+      <table class="table" *ngIf="!carregando">
+        <thead class="table-light border-bottom border-light">
+          <tr>
+            <th scope="col">FILME</th>
+            <th scope="col">CATEGORIA</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movies of movies">
+            <td>{{ movies.title }}</td>
+            <td>{{ movies.category }}</td>
+            <td class="text-center action-icon">
+              <span class="action-icon-edit" title="Editar" (click)="abrirModalEditar(movies)">
+                <app-feathericon [icon]="'edit'"></app-feathericon>
+              </span>
+              <span class="action-icon-trash" title="Excluir" (click)="deletarFilme(movies.id)">
+                <app-feathericon [icon]="'trash-2'"></app-feathericon>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
