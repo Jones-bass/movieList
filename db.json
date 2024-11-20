@@ -1,66 +1,14 @@
 {
   "filmes": [
     {
-      "_id": "1",
+      "id": "1",
       "title": "X-Men",
-      "category": "Ação",
-      "id": "e326"
+      "category": "Ação"
     },
     {
-      "_id": "2",
-      "title": "Inception",
-      "category": "Ficção Científica",
-      "id": "ebee"
-    },
-    {
-      "id": "a952",
-      "title": "Ok",
-      "category": "Ok"
-    },
-    {
-      "id": "a49a",
-      "title": "asd",
-      "category": "asdd"
-    },
-    {
-      "id": "fb43",
-      "title": "Ok",
-      "category": "okok"
-    },
-    {
-      "id": "68c2",
-      "title": "asd",
-      "category": "asasd"
-    },
-    {
-      "id": "18f3",
-      "title": "asd",
-      "category": "asdasd"
-    },
-    {
-      "id": "d5c7",
-      "title": "asd",
-      "category": "asdd"
-    },
-    {
-      "id": "c294",
-      "title": "ASDASASDAS",
-      "category": "ASDASD"
-    },
-    {
-      "id": "d344",
-      "title": "Res",
-      "category": "werws"
-    },
-    {
-      "id": "510f",
-      "title": "asdas",
-      "category": "sdsdf"
-    },
-    {
-      "id": "20b7",
-      "title": "sdas",
-      "category": "asdfads"
+      "id": "ffcd",
+      "title": "Deadpoll",
+      "category": "Ação"
     }
   ]
 }

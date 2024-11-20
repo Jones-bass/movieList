@@ -1,5 +1,3 @@
-
-
 html, body { 
   height: 100%; 
   padding: 1%;
@@ -12,6 +10,7 @@ $green-bg-color: #9BF169;
 $purple-bg-color: #7343DD;
 $golden-bg-color: #FFC136;
 $white-bg-color: #ffffff;
+
 
 /* estilizacao icones */
 .action-icon {
@@ -33,6 +32,12 @@ $white-bg-color: #ffffff;
       color: darken($red-bg-color, 10%);
     }
   }
+}
+
+.custom-swal-icon:where(.swal2-icon).swal2-warning {
+  color: $red-bg-color;
+  border: 3px solid $red-bg-color;
+  font-size: 20px;
 }
 
 

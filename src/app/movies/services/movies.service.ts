@@ -20,4 +20,9 @@ export class MovieService {
   public cadastrarFilme(movie: MoviesRequest): Observable<MoviesRequest> {
     return this.http.post<MoviesRequest>(`${this.apiUrl}filmes`, movie).pipe();
   }
+
+  public deletarFilme(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}filmes/${id}`).pipe();
+  }
+
 }

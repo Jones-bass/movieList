@@ -32,7 +32,7 @@
                 <span class="action-icon-edit" title="Editar">
                   <app-feathericon [icon]="'edit'"></app-feathericon>
                 </span>
-                <span class="action-icon-trash" title="Excluir">
+                <span class="action-icon-trash" title="Excluir" (click)="deletarFilme(movies.id)">
                   <app-feathericon [icon]="'trash-2'"></app-feathericon>
                 </span>
               </td>

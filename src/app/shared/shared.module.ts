@@ -10,11 +10,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { LoadingListComponent } from "./component/loading-list/loading-list.component";
 
-
 @NgModule({
   declarations: [
     FeathericonComponent,
-    LoadingListComponent,
+    LoadingListComponent,    
   ],
   imports: [
     CommonModule,
@@ -29,7 +28,7 @@ import { LoadingListComponent } from "./component/loading-list/loading-list.comp
     FormsModule,
     LoadingListComponent,
     ReactiveFormsModule,
-  ],
+  ],  
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedModule {}
