@@ -6,10 +6,11 @@ import { RegisterMoviesComponent } from '../movies-register/register-movies.comp
 import { ConfirmeModalService } from '../../shared/component/confirme-modal/confirme-modal.service';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-movies',
   templateUrl: './list-movies.component.html',
-  styleUrl: './list-movies.component.scss'
+  styleUrl: './list-movies.component.scss',
 })
 
 export class ListMoviesComponent implements OnInit {
@@ -17,6 +18,8 @@ export class ListMoviesComponent implements OnInit {
   public movies: MoviesRequest[] = [];
 
   public carregando = false;
+
+  readonly displayedColumns = ['name', 'category', 'actions'];
 
   constructor(
     private movieService: MovieService,

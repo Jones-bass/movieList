@@ -13,7 +13,7 @@ import { LoadingListComponent } from "./component/loading-list/loading-list.comp
 @NgModule({
   declarations: [
     FeathericonComponent,
-    LoadingListComponent,    
+    LoadingListComponent,   
   ],
   imports: [
     CommonModule,

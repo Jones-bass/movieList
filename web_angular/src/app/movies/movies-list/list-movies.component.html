@@ -29,8 +29,13 @@
         </thead>
         <tbody>
           <tr *ngFor="let movies of movies">
-            <td>{{ movies.title }}</td>
-            <td>{{ movies.category }}</td>
+            <td class="text-secondary">{{ movies.title }}</td>
+            <td class="d-flex text-secondary gap-2 justify-content-start align-items-center text-center">
+              <mat-icon aria-hidden="false" aria-label="Categoria do Filme">{{
+                movies.category | category
+              }}</mat-icon>
+              {{ movies.category }}
+            </td>
             <td class="text-center action-icon">
               <span class="action-icon-edit" title="Editar" (click)="abrirModalEditar(movies)">
                 <app-feathericon [icon]="'edit'"></app-feathericon>

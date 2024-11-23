@@ -1,0 +1,34 @@
+{
+  "movies": [
+    {
+      "title": "X-Men",
+      "category": "Ação",
+      "id": "1"
+    },
+    {
+      "title": "Homens de Preto",
+      "category": "Ficção",
+      "id": "ffcd"
+    },
+    {
+      "title": "O Grito",
+      "category": "Terror",
+      "id": "96c8"
+    },
+    {
+      "id": "d3a4",
+      "title": "Dois corações",
+      "category": "Romance"
+    },
+    {
+      "title": "Toy Story",
+      "category": "Infantil",
+      "id": "76bc"
+    },
+    {
+      "title": "Gladiador",
+      "category": "Aventura",
+      "id": "f508"
+    }
+  ]
+}
