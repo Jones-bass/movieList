@@ -1,0 +1,20 @@
+version: "3.3"
+
+services:
+  database_movie: 
+    image: postgres
+    container_name: database_movie
+    restart: always
+    ports: 
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=movie
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=movie
+    volumes:
+      - pgdata:/data/postgres
+  
+  
+volumes:
+  pgdata:
+    driver: local
