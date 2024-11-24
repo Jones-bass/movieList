@@ -8,7 +8,7 @@ import { MoviesRequest } from '../model/request/movies.request';
 })
 export class MovieService {
 
-  private apiUrl = 'http://localhost:3000/';
+  private apiUrl = 'api/movies';
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +18,7 @@ export class MovieService {
   }
 
   public registerMovies(movie: MoviesRequest): Observable<MoviesRequest> {
-    return this.http.post<MoviesRequest>(`${this.apiUrl}movies`, movie).pipe();
+    return this.http.post<MoviesRequest>(`${this.apiUrl}/create`, movie).pipe();
   }
 
   public deleteMovies(id: string): Observable<any> {

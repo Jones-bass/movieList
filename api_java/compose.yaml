@@ -12,9 +12,8 @@ services:
       - POSTGRES_PASSWORD=admin
       - POSTGRES_DB=movie
     volumes:
-      - pgdata:/data/postgres
-  
-  
+      - pgdata:/var/lib/postgresql/data  
+      
 volumes:
   pgdata:
     driver: local
