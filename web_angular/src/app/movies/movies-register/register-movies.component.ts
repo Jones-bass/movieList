@@ -43,7 +43,6 @@ export class RegisterMoviesComponent {
       this.formGroup.markAllAsTouched();
       return;
     }
-    this.atualizarListaFilme.emit(); 
     this.carregando = true;
 
     const request$ = this.isEditMode
@@ -51,17 +50,18 @@ export class RegisterMoviesComponent {
     : this.movieService.registerMovies(this.formGroup.value);
 
     request$.subscribe({
-      next: () => this.onSuccess(),
+      next: (response) => this.onSuccess(response), 
       error: (error) => this.onError(error),
     });
   }
 
-  private onSuccess() {
+  private onSuccess(movie: MoviesRequest) {
     const mensagem = this.isEditMode
     ? "Filme atualizado com sucesso!"
     : "Filme cadastrado com sucesso!";
     this.carregando = false;
     this.toastr.success(mensagem);
+    this.atualizarListaFilme.emit(movie); 
     this.activeModal.close();
   }
 

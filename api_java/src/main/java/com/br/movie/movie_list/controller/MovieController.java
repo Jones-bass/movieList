@@ -1,11 +1,15 @@
 package com.br.movie.movie_list.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,4 +47,24 @@ public class MovieController {
         return ResponseEntity.ok(movies);
     }
 
+    @SuppressWarnings("rawtypes")
+    @PutMapping("/{id}")
+    public ResponseEntity update(@RequestBody MovieModel movieModel, @PathVariable UUID id) {
+        // Busca o movie existente pelo ID
+        var existingMovie = movieRepository.findById(id).orElse(null);
+
+        if (existingMovie == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Filme não encontrado");
+        }
+
+        // Atualiza os campos permitidos
+        existingMovie.setTitle(movieModel.getTitle());
+        existingMovie.setCategory(movieModel.getCategory());
+
+        // Salva as alterações
+        var updatedMovie = movieRepository.save(existingMovie);
+
+        // Retorna o movie atualizado
+        return ResponseEntity.ok(updatedMovie);
+    }
 }

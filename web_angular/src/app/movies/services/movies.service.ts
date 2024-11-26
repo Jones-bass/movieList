@@ -8,12 +8,12 @@ import { MoviesRequest } from '../model/request/movies.request';
 })
 export class MovieService {
 
-  private apiUrl = 'api/movies';
+  private apiUrl = 'http://localhost:8080/api/movies';
 
   constructor(private http: HttpClient) { }
 
   public getMovies(): Observable<any> {
-    return this.http.get(`${this.apiUrl}movies`)
+    return this.http.get(`${this.apiUrl}/list`)
       .pipe();
   }
 
@@ -27,7 +27,7 @@ export class MovieService {
 
   public updateMovies(id: string, movie: MoviesRequest): Observable<MoviesRequest> {
     return this.http
-      .put<MoviesRequest>(`${this.apiUrl}movies/${id}`, movie)
+      .put<MoviesRequest>(`${this.apiUrl}/${id}`, movie)
       .pipe();
   }
 }

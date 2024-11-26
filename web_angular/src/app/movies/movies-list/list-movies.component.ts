@@ -84,14 +84,21 @@ export class ListMoviesComponent implements OnInit {
   public abrirModalEditar(movie: MoviesRequest) {
     const modalRef = this.modalService.open(RegisterMoviesComponent);
     modalRef.componentInstance.movie = movie;
-    modalRef.result.then(
-      () => this.getMovies(),
-    );
+    
+    modalRef.componentInstance.atualizarListaFilme.subscribe((updatedMovie: MoviesRequest) => {
+      this.movies.findIndex((m) => m.id === updatedMovie.id);
+
+    });
+    modalRef.result.then(() => this.getMovies(), () => { });
   }
 
 
   public openModal() {
-    this.modalService.open(RegisterMoviesComponent);
+    const modalRef = this.modalService.open(RegisterMoviesComponent);
+
+    modalRef.componentInstance.atualizarListaFilme.subscribe((newMovie: MoviesRequest) => {
+      this.movies.push(newMovie);
+    });
   }
 }
 
