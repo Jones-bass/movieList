@@ -18,6 +18,10 @@ export class ListMoviesComponent implements OnInit {
   public movies: MoviesRequest[] = [];
 
   public carregando = false;
+  
+  public pesquisa: Partial<MoviesRequest> = {}; 
+  filtro = { valueStatus: null, tipoStatus: null };
+  limpaFiltros = false;
 
   readonly displayedColumns = ['name', 'category', 'actions'];
 
@@ -28,8 +32,12 @@ export class ListMoviesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    this.resetPesquisa();
     this.getMovies();
+  }
+
+  private resetPesquisa(): void {
+    this.pesquisa = { title: '' }; 
   }
 
   private getMovies() {
@@ -110,13 +118,36 @@ export class ListMoviesComponent implements OnInit {
     modalRef.result.then(() => this.getMovies(), () => { });
   }
 
-
   public openModal() {
     const modalRef = this.modalService.open(RegisterMoviesComponent);
 
     modalRef.componentInstance.atualizarListaFilme.subscribe((newMovie: MoviesRequest) => {
       this.movies.push(newMovie);
     });
+  }
+
+  public pesquisar(title: string): void {
+    if (title.trim() !== '') {
+      this.pesquisa.title = title; 
+      this.filtrarFilmes();
+      this.limpaFiltros = true;
+    } else {
+      this.resetPesquisa();
+      this.getMovies(); // Recarrega todos os filmes se o filtro estiver vazio
+    }
+  }
+
+  private filtrarFilmes(): void {
+    const titleFiltrado = this.pesquisa.title?.toLowerCase() || '';
+    this.movies = this.movies.filter((movie) =>
+      movie.title.toLowerCase().includes(titleFiltrado)
+    );
+  }
+
+  public limparFiltros(): void {
+    this.resetPesquisa();
+    this.getMovies();
+    this.limpaFiltros = false;
   }
 }
 

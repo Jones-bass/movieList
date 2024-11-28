@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+  <div class="card-block row">
+    <div class="col-md-12"> 
+      <div class="form-group position-relative">
+        <input
+          class="form-control input-with-icon text-muted"
+          type="text"
+          placeholder="Buscar filme"
+          formControlName="title"
+        />
+        <app-feathericon
+          [icon]="'search'"
+          class="search-icon"
+          (click)="_pesquisar()"
+        ></app-feathericon>
+      </div>
+    </div>
+  </div>
+</form>

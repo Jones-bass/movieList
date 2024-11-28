@@ -7,6 +7,7 @@ import { ListMoviesComponent } from './movies-list/list-movies.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
 import { CategoryPipe } from '../shared/pipes/category.pipe';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CategoryPipe } from '../shared/pipes/category.pipe';
     MoviesRoutingModule,
     SharedModule,
     MatIconModule,
-    CategoryPipe
+    CategoryPipe,
+    MatProgressSpinnerModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   

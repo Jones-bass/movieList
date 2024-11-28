@@ -9,11 +9,13 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { RouterModule } from "@angular/router";
 import { LoadingListComponent } from "./component/loading-list/loading-list.component";
+import { FiltroComponent } from "./component/filtro/filtro.component";
 
 @NgModule({
   declarations: [
     FeathericonComponent,
-    LoadingListComponent,   
+    LoadingListComponent,
+    FiltroComponent,   
   ],
   imports: [
     CommonModule,
@@ -28,6 +30,7 @@ import { LoadingListComponent } from "./component/loading-list/loading-list.comp
     FormsModule,
     LoadingListComponent,
     ReactiveFormsModule,
+    FiltroComponent,
   ],  
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
