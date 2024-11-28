@@ -22,7 +22,7 @@ export class MovieService {
   }
 
   public deleteMovies(id: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}movies/${id}`).pipe();
+    return this.http.delete(`${this.apiUrl}/${id}`).pipe();
   }
 
   public updateMovies(id: string, movie: MoviesRequest): Observable<MoviesRequest> {

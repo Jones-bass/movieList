@@ -49,8 +49,22 @@ export class ListMoviesComponent implements OnInit {
   }
 
   protected deletarFilme(movieId: string | undefined): void {
+    if (!movieId) {
+      console.error("ID do filme é indefinido");
+      return;
+    }
+    
+    const movieToDelete = this.movies.find((movie) => movie.id === movieId);
+
+    if (!movieToDelete) {
+      console.error("Filme não encontrado na lista");
+      return;
+    }
+
     this.confirmModalService
-      .confirmDeletion("Atenção!", "Tem certeza que deseja excluir?")
+      .confirmDeletion(
+        "Atenção!",
+        `Tem certeza que deseja excluir o filme "${movieToDelete.title}"?`)
       .then((result) => {
         if (result.isConfirmed) {
           this.excluirFilme(movieId as string);
@@ -62,8 +76,12 @@ export class ListMoviesComponent implements OnInit {
 
   private excluirFilme(movieId: string): void {
     this.movieService.deleteMovies(movieId).subscribe({
-      next: () => this.onDeleteSuccess(),
+      next: () => {
+        this.movies = this.movies.filter((movie) => movie.id !== movieId);
+        this.onDeleteSuccess();
+      },
       error: (error) => this.onDeleteError(error),
+
     });
   }
 
@@ -84,7 +102,7 @@ export class ListMoviesComponent implements OnInit {
   public abrirModalEditar(movie: MoviesRequest) {
     const modalRef = this.modalService.open(RegisterMoviesComponent);
     modalRef.componentInstance.movie = movie;
-    
+
     modalRef.componentInstance.atualizarListaFilme.subscribe((updatedMovie: MoviesRequest) => {
       this.movies.findIndex((m) => m.id === updatedMovie.id);
 
