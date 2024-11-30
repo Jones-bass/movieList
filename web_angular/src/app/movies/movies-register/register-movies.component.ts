@@ -15,6 +15,7 @@ export class RegisterMoviesComponent {
   @Output() atualizarListaFilme = new EventEmitter<MoviesRequest>();
 
   public carregando = false;
+  
   isEditMode = false;
   formGroup: FormGroup;
 

@@ -8,14 +8,14 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { RouterModule } from "@angular/router";
-import { LoadingListComponent } from "./component/loading-list/loading-list.component";
 import { FiltroComponent } from "./component/filtro/filtro.component";
+import { LoadingInputComponent } from "./component/loading-input/loading-input.component";
 
 @NgModule({
   declarations: [
     FeathericonComponent,
-    LoadingListComponent,
-    FiltroComponent,   
+    FiltroComponent, 
+    LoadingInputComponent  
   ],
   imports: [
     CommonModule,
@@ -28,9 +28,9 @@ import { FiltroComponent } from "./component/filtro/filtro.component";
     NgbModule,
     RouterModule,
     FormsModule,
-    LoadingListComponent,
     ReactiveFormsModule,
     FiltroComponent,
+    LoadingInputComponent
   ],  
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

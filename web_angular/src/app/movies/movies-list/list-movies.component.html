@@ -49,4 +49,14 @@
       </table>
     </div>
   </div>
+
+  <div *ngIf="!carregando && (!movies || movies.length === 0)" class="d-flex justify-content-center align-items-center p-4 bg-light rounded shadow-sm" style="min-height: 300px;">
+    <div class="text-center">
+      <div class="mb-3 text-secondary">
+        <app-feathericon [icon]="'folder'" class="fs-3 text-primary"></app-feathericon>
+      </div>
+      <h5 class="text-muted">Nenhum filme encontrado</h5>
+      <p class="text-secondary">Adicione novos filmes clicando no botão <strong>Cadastrar</strong>.</p>
+    </div>
+  </div>  
 </div>
